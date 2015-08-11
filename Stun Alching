@@ -1,0 +1,61 @@
+/*
+An AHK script to streamline alch stunning
+
+Usage: Hover over the near bottom left of the high alch icon,
+    set client to resizeable, and make the window as small as possible, and
+    position chosen NPC between chatbox and open spellbook tab.
+    You're only using buttons 1, 2, and 3.
+    Roll across them once to alch and move to the curse (I use enfeeble)
+    Roll across them (after the mage tab switches back) to cast said curse on NPC
+    Tap 1 to reset counter and move back to alch button.
+
+@Author Draestyn
+*/
+
+
+#NoEnv
+SendMode Input
+; SetTimer, Reset, 100
+global Count := 1
+
+#If WinActive("OSBuddy") ; Count is 7 746, 325 (702, 396     544, 423
+
+1::
+    if Count(7, 1) OR Count(7, 4)
+        Click Left
+    else if Count(7, 7)
+        MouseMove, 202, -98, 0, R
+return
+
+2::
+    if Count(7, 2)
+        Click Left
+    else if Count(7, 5)
+        MouseMove, -158, 27, 0, R
+return
+
+3::
+    if Count(7, 3)
+        MouseMove, -44, 71, 0, R
+    else if Count(7, 6)
+        Click Left
+return
+
+4::
+Count := 1
+return
+
+
+; Reset:
+; If (A_TimeSinceThisHotkey > 600)
+;     Count := 1
+; Return
+
+
+Count(Limit, Check) {
+If (Count = Check) {
+    Count := ((Count >= Limit) ? 1 : Count + 1)
+    Return True
+    }
+Return False
+}
