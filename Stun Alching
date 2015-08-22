@@ -46,12 +46,6 @@ Count := 1
 return
 
 
-; Reset:
-; If (A_TimeSinceThisHotkey > 600)
-;     Count := 1
-; Return
-
-
 Count(Limit, Check) {
 If (Count = Check) {
     Count := ((Count >= Limit) ? 1 : Count + 1)
