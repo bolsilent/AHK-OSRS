@@ -15,7 +15,6 @@ Usage: Hover over the near bottom left of the high alch icon,
 
 #NoEnv
 SendMode Input
-; SetTimer, Reset, 100
 global Count := 1
 
 #If WinActive("OSBuddy") ; Count is 7 746, 325 (702, 396     544, 423
