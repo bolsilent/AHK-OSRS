@@ -15,12 +15,10 @@ global Count := 1
 $WheelUp::
 $WheelDown::
 
-    if Count(4, 1)
+    if Count(4, 1) OR Count(4, 3)
         Click Left
     else if Count(4, 2)
         MouseMove, 40, 0, 0, R
-    else if Count(4, 3)
-        Click Left
     else if Count(4, 4)
         MouseMove, -40, 0, 0, R
 
